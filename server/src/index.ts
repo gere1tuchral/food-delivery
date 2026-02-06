@@ -18,7 +18,7 @@ app.use("/foods", foodRouter);
 app.use("/categories", categoryRouter);
 
 app.use("/food-cart", foodCartRouter);
+connectTOMondoDB();
 app.listen(10000, async () => {
-  await connectTOMondoDB();
   console.log(`Server is running on port ${10000}`);
 });
