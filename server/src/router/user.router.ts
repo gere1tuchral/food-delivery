@@ -1,7 +1,9 @@
-import { FoodGetById } from "../controller/foodController/get-food-by-id.controller";
-import { createNewUser } from "../controller/userController/create-new-user.controller";
-import { Router } from "express";
-export const userRouter = Router();
-userRouter.post("/create-user", createNewUser);
+import { signInController, signUpController } from "../controller";
 
+import { Router } from "express";
+
+export const userRouter = Router();
+
+userRouter.post("/sign-up", signUpController);
+userRouter.post("/sign-in", signInController);
 // userRouter.remove("/delete-user", deleteUser);

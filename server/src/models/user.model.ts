@@ -19,7 +19,7 @@ type User = {
 export const UserSchema = new Schema<User>(
   {
     name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
+    email: { type: String, required: true },
     password: { type: String, required: true },
     phoneNumber: { type: String, required: true },
     address: { type: String },
@@ -29,7 +29,7 @@ export const UserSchema = new Schema<User>(
       default: userRoles.USER,
     },
 
-    orderedFoods: [{ type: Schema.Types.ObjectId, ref: "Food" }],
+    orderedFoods: [{ type: Schema.Types.ObjectId, ref: "Foods" }],
     ttl: { type: Date },
     isVerified: { type: Boolean },
   },
