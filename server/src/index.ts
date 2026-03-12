@@ -1,5 +1,5 @@
 import { configDotenv } from "dotenv";
-import express, { Application } from "express";
+import express from "express";
 import cors from "cors";
 import { categoryRouter, userRouter } from "./router";
 import connectTOMondoDB from "./mongodb";
@@ -8,7 +8,7 @@ import { foodOrderRouter } from "./router";
 
 configDotenv();
 
-const app: Application = express();
+const app = express();
 
 app.use(cors());
 app.use(express.json());

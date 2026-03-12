@@ -23,7 +23,7 @@ type foodOrder = {
 };
 export const FoodOrderSchema = new Schema<foodOrder>(
   {
-    user: { type: Schema.Types.ObjectId, ref: "Users", required: true },
+    user: { type: Schema.Types.ObjectId, ref: "User", required: true },
     total_price: { type: Number },
     food_Order_Items: [{ type: FoodOrderItemSchema, required: true }],
     status: {

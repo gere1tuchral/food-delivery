@@ -5,7 +5,7 @@ enum userRoles {
   ADMIN = "ADMIN",
 }
 
-type User = {
+type UserType = {
   name: string;
   email: string;
   password: string;
@@ -16,10 +16,10 @@ type User = {
   ttl: Date;
   isVerified: boolean;
 };
-export const UserSchema = new Schema<User>(
+export const UserSchema = new Schema<UserType>(
   {
     name: { type: String, required: true },
-    email: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     phoneNumber: { type: String, required: true },
     address: { type: String },
@@ -29,13 +29,13 @@ export const UserSchema = new Schema<User>(
       default: userRoles.USER,
     },
 
-    orderedFoods: [{ type: Schema.Types.ObjectId, ref: "Foods" }],
+    orderedFoods: [{ type: Schema.Types.ObjectId, ref: "Food" }],
     ttl: { type: Date },
-    isVerified: { type: Boolean },
+    isVerified: { type: Boolean, default: false },
   },
   {
     timestamps: true,
   },
 );
-export const UserModel: Model<User> =
-  models["Users"] || model("Users", UserSchema);
+export const UserModel: Model<UserType> =
+  models["User"] || model("User", UserSchema);

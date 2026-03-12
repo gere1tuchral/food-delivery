@@ -8,6 +8,7 @@ export const CategorySchema = new Schema<Category>(
     categoryName: {
       type: String,
       required: true,
+      unique: true,
     },
   },
   {
